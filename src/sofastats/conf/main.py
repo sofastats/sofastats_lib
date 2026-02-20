@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 import platform
 from subprocess import Popen, PIPE
-from typing import Any, Literal
+from typing import Any, Literal, TypeAlias
 
 MAX_CHI_SQUARE_CELLS = 200  ## was 25
 MAX_CHI_SQUARE_VALS_IN_DIM = 30  ## was 6
@@ -134,7 +134,7 @@ class DbeSpec:
         """
         return f"{self.str_value_quote}{str_value}{self.str_value_quote}"
 
-type SortOrderSpecs = dict[str, list[Any]]
+SortOrderSpecs: TypeAlias = dict[str, list[Any]]
 
 class SortOrder(StrEnum):
     """
