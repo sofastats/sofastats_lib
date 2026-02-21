@@ -4,6 +4,7 @@ Strategy - for each statistical test, compare the result against two trusted sou
 2) the widely used and scrutinised SOFA Statistics code
 """
 from functools import partial
+from pathlib import Path
 import tempfile
 
 import pandas as pd
@@ -66,17 +67,17 @@ def test_chi_square():
     df_unfiltered = pd.read_csv(orig_csv_file_path)
     df = df_unfiltered.loc[
         (df_unfiltered['Age Group'].isin(['<20', '20 to <30'])) & (df_unfiltered['Country'].isin(['Denmark', 'NZ']))]
-    temp = tempfile.NamedTemporaryFile()
-    df.to_csv(temp.name, index=False)
-    csv_file_path = temp.name
-    design = ChiSquareDesign(
-        csv_file_path=csv_file_path,
-        sort_orders_yaml_file_path=sort_orders_yaml_file_path,
-        variable_a_name='Age Group', variable_a_sort_order=SortOrder.CUSTOM,
-        variable_b_name='Country', variable_b_sort_order=SortOrder.CUSTOM,
-    )
-    # design.make_output()
-    result = design.to_result()
+    with tempfile.NamedTemporaryFile(delete=False) as temp:
+        df.to_csv(temp.name, index=False)
+        csv_file_path = temp.name
+        design = ChiSquareDesign(
+            csv_file_path=csv_file_path,
+            sort_orders_yaml_file_path=sort_orders_yaml_file_path,
+            variable_a_name='Age Group', variable_a_sort_order=SortOrder.CUSTOM,
+            variable_b_name='Country', variable_b_sort_order=SortOrder.CUSTOM,
+        )
+        # design.make_output()
+        result = design.to_result()
     print(result)
 
     under_20_nz_freq = len(df.loc[(df['Age Group'] == '<20') & (df['Country'] == 'NZ')])

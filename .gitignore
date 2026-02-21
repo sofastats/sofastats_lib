@@ -8,4 +8,3 @@ wheels/
 
 # Virtual environments
 .venv
-/src/sofastats/output/js/sofastats_dojo_minified.js

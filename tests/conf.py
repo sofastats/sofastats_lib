@@ -2,7 +2,7 @@ from pathlib import Path
 
 from sofastats.conf import main as main_conf
 
-examples_folder = Path(main_conf.__file__).parent.parent.parent.parent / 'examples'
+examples_folder = Path(main_conf.__file__).parent.parent.parent / 'sofastats_examples'
 print(f"{examples_folder=}")
 files_folder = examples_folder / 'files'
 sort_orders_yaml_file_path = files_folder / 'sort_orders.yaml'

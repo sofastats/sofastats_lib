@@ -202,7 +202,7 @@ and
             item = orig_tuple[idx]
         except IndexError:
             break
-        if item in Metric or item == BLANK:
+        if item in [member.value for member in Metric] or item == BLANK:
             break
         items.append(item)
         if debug:
