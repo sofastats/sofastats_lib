@@ -4,15 +4,31 @@ from functools import partial
 import pandas as pd
 
 from sofastats.output.interfaces import (
-    DEFAULT_SUPPLIED_BUT_MANDATORY_ANYWAY, HTMLItemSpec, OutputItemType, CommonDesign)
-from sofastats.output.tables.interfaces import BLANK, PctType, Row
+    DEFAULT_SUPPLIED_BUT_MANDATORY_ANYWAY,
+    CommonDesign,
+    HTMLItemSpec,
+    OutputItemType,
+)
 from sofastats.output.styles.utils import get_style_spec
-from sofastats.output.tables.utils.html_fixes import fix_top_left_box, merge_cols_of_blanks
-from sofastats.output.tables.utils.misc import (apply_index_styles, get_data_from_spec,
-                                                get_df_pre_pivot_with_pcts, get_raw_df, set_table_styles)
+from sofastats.output.tables.interfaces import BLANK, PctType, Row
+from sofastats.output.tables.utils.html_fixes import (
+    fix_top_left_box,
+    merge_cols_of_blanks,
+)
+from sofastats.output.tables.utils.misc import (
+    apply_index_styles,
+    get_data_from_spec,
+    get_df_pre_pivot_with_pcts,
+    get_raw_df,
+    set_table_styles,
+)
 from sofastats.output.tables.utils.multi_index_sort import (
-    get_metric2order, get_order_rules_for_multi_index_branches, get_sorted_multi_index_list)
-from sofastats.utils.misc import get_pandas_friendly_name, correct_str_dps
+    get_metric2order,
+    get_order_rules_for_multi_index_branches,
+    get_sorted_multi_index_list,
+)
+from sofastats.utils.misc import correct_str_dps, get_pandas_friendly_name
+from sofastats.utils.pandas import infer_objects_no_copy, no_silent_downcasting
 
 
 def get_all_metrics_df_from_vars(data, *, row_vars: list[str],
@@ -84,10 +100,8 @@ def get_all_metrics_df_from_vars(data, *, row_vars: list[str],
     df_pre_pivots = [df_pre_pivot, ]
     column_cols = ['metric', ]  ## simple cf a cross_tab
     df = df_pre_pivot.pivot(index=index_cols, columns=column_cols, values='n')  ## missing rows e.g. if we have no rows for females < 20 in the USA, now appear as NAs so we need to fill them in df
-    ## https://stackoverflow.com/questions/77900971/pandas-futurewarning-downcasting-object-dtype-arrays-on-fillna-ffill-bfill
-    ## https://medium.com/@felipecaballero/deciphering-the-cryptic-futurewarning-for-fillna-in-pandas-2-01deb4e411a1
-    with pd.option_context('future.no_silent_downcasting', True):
-        df = df.fillna(0).infer_objects(copy=False)  ## needed so we can round values (can't round a NA). Also need to do later because of gaps appearing when pivoted then too
+    with no_silent_downcasting():
+        df = infer_objects_no_copy(df.fillna(0)) ## needed so we can round values (can't round a NA). Also need to do later because of gaps appearing when pivoted then too
     if inc_col_pct:
         df_pre_pivot_inc_row_pct = get_df_pre_pivot_with_pcts(
             df, is_cross_tab=False, pct_type=PctType.COL_PCT, decimal_points=decimal_points, debug=debug)
@@ -95,8 +109,8 @@ def get_all_metrics_df_from_vars(data, *, row_vars: list[str],
     df_pre_pivot = pd.concat(df_pre_pivots)
     df_pre_pivot['__throwaway__'] = 'Metric'
     df = df_pre_pivot.pivot(index=index_cols, columns=['__throwaway__', ] + column_cols, values='n')
-    with pd.option_context('future.no_silent_downcasting', True):
-        df = df.fillna(0).infer_objects(copy=False)
+    with no_silent_downcasting():
+        df = infer_objects_no_copy(df.fillna(0))
     df = df.astype(str)
     ## have to ensure all significant digits are showing e.g. 3.33 and 1.0 or 0.0 won't align nicely
     correct_string_dps = partial(correct_str_dps, decimal_points=decimal_points)

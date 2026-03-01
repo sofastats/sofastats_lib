@@ -10,6 +10,7 @@ import numpy as np
 from sofastats.conf.main import DbeSpec
 from sofastats.output.styles.interfaces import StyleSpec
 from sofastats.output.tables.interfaces import PCT_METRICS, TOTAL, Metric, PctType
+from sofastats.utils.pandas import infer_objects_no_copy
 
 def get_raw_df(cur, dbe_spec: DbeSpec, source_table_name: str, *, debug=False) -> pd.DataFrame:
     source_table_name_quoted = dbe_spec.entity_quoter(source_table_name)
@@ -239,8 +240,7 @@ def get_df_pre_pivot_with_pcts(df: pd.DataFrame, *,
         ## then everywhere a percentage calculation is impossible the result will be a NaN which we can turn into a 'N/A' later
         if use_groupby:
             raw_summed_values = (
-                row.groupby(col_names_for_grouping).agg('sum')
-                .infer_objects(copy=False)  ## so replace can be used even though it is being broadcast (deprecated unless infer_objects used)
+                infer_objects_no_copy(row.groupby(col_names_for_grouping).agg('sum'))  ## so replace can be used even though it is being broadcast (deprecated unless infer_objects used)
                 .replace({0: np.nan}))  ## returns NaN instead of raising a ZeroDivisionError - it happens when there are no values in a row for a particular bunch of columns (the row exists because it has non-zero values in other columns)
             summed_values = raw_summed_values / divide_by_to_handle_included_totals
             s_row_pcts = (100 * row) / summed_values

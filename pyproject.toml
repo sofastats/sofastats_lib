@@ -11,7 +11,8 @@ dependencies = [
     "matplotlib>=3.8.0,!=3.10.6",
     "mkdocs-include-markdown-plugin>=7.2.1",
     "numpy>=1.26.4",
-    "pandas>=2.3,<3.0.0",
+    "packaging>=26.0",
+    "pandas>=2.3",
     "pyparsing>=3.0.8,<3.3.0",
     "ruamel-yaml>=0.18.10",
 ]
