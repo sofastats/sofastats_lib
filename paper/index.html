@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -820,12 +820,13 @@
 <p>sofastats_lib: A Python package for basic statistical tests, report tables, and charting</p>
 <p>Grant Paton-Simpson</p>
 <h2 id="summary">Summary</h2>
-<p>sofastats_lib is a Python library for statistical analysis and reporting based on the design of the SOFA Statistics desktop application (2009 to present).</p>
-<p>sofatstats_lib provides a standard interface for connecting to CSV files and databases and generating report-ready self-contained HTML output.
+<p><code>sofastats_lib</code> is a Python library for statistical analysis and reporting
+based on the design of the SOFA Statistics desktop application (first version 2009).</p>
+<p><code>sofatstats_lib</code> provides a standard interface for connecting to CSV files and databases and generating report-ready self-contained HTML output.
 In the case of statistical tests, result are also generated in an object (data class) readily consumed by Python programs.
-Where it makes sense, there is also the option of worked example explanations of the results using the actual data used
-- for example, of the Mann-Whitney U results.
-- All output can be styled by pre-existing styles or by custom YAML-defined styles (https://sofastats.github.io/sofastats_lib/styles/).</p>
+Where it makes sense, there is also the option of worked example explanations of the results using the actual data used -
+for example, of the Mann-Whitney U results.
+All output can be styled by pre-existing styles or by custom YAML-defined styles (https://sofastats.github.io/sofastats_lib/styles/).</p>
 <p><img alt="Example outputs" src="https://sofastats.github.io/sofastats_lib/images/carousel.png" width="700" /></p>
 <h2 id="statement-of-need">Statement of Need</h2>
 <p>Python is the most popular language for data science and analytics. Python developers are well served with basic statistical tests and visualization options. But there is a gap for an integrated set of tools for charting, report tables, and inferential statistical tests. sofastats_lib aims to make such tools accessible to beginners as well as expert analysts through a standardized API (see https://sofastats.github.io/sofastats_lib/API), detailed documentation (https://sofastats.github.io/sofastats_lib/ and https://sofastats.github.io/sofastats_lib/data_prep/), and a design informed by UX research (see "How UX Can Improve Your Python Project" by Grant and Charlotte Paton-Simpson: https://www.youtube.com/watch?v=5DDZa46g3Yc).</p>
@@ -927,7 +928,7 @@ The goal of interface design was to minimise boilerplate and standardise across 
 <h4 id="close-up-view">Close-Up View</h4>
 <p><img alt="Cross Tab Example - Close-Up" src="https://sofastats.github.io/sofastats_lib/images/cross_tab_red_spirals_style_truncated.png" width="700" /></p>
 <h4 id="complete-view">Complete View</h4>
-<p>Note - it may not make sense to make massive tables but the point is that sofastats_lib can generate whatever is configured.</p>
+<p>Note - it may not make sense to make massive tables but the point is that <code>sofastats_lib</code> can generate whatever is configured.</p>
 <p><img alt="Cross Tab Example" src="https://sofastats.github.io/sofastats_lib/images/cross_tab_red_spirals_style.png" width="700" /></p>
 <div class="highlight"><pre><span></span><code><span class="n">design</span> <span class="o">=</span> <span class="n">AnovaDesign</span><span class="p">(</span>
     <span class="n">csv_file_path</span><span class="o">=</span><span class="n">csv_file_path</span><span class="p">,</span>
