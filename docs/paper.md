@@ -6,18 +6,23 @@ Grant Paton-Simpson
 
 ## Summary
 
-`sofastats_lib` is a Python library for statistical analysis and reporting based on the design of the SOFA Statistics desktop application (2009 to present).
+`sofastats_lib` is a Python library for statistical analysis and reporting
+based on the design of the SOFA Statistics desktop application which was launched in 2009.
 
 `sofatstats_lib` provides a standard interface for connecting to CSV files and databases and generating report-ready self-contained HTML output.
 In the case of statistical tests, result are also generated in an object (data class) readily consumed by Python programs.
-Where it makes sense, there is also the option of worked example explanations of the results using the actual data used - for example, of the Mann-Whitney U results.
-All output can be styled by pre-existing styles or by custom YAML-defined styles (https://sofastats.github.io/sofastats_lib/styles/).
+Where it makes sense, there is also the option of worked example explanations of the results using the actual data used -
+for example, of the Mann-Whitney U results.
+Output can be themed by pre-existing styles or by custom YAML-defined styles (https://sofastats.github.io/sofastats_lib/styles/).
 
 <img alt="Example outputs" src="https://sofastats.github.io/sofastats_lib/images/carousel.png" width="700" />
 
 ## Statement of Need
 
-Python is the most popular language for data science and analytics. Python developers are well served with basic statistical tests and visualization options. But there is a gap for an integrated set of tools for charting, report tables, and inferential statistical tests. sofastats_lib aims to make such tools accessible to beginners as well as expert analysts through a standardized API (see https://sofastats.github.io/sofastats_lib/API), detailed documentation (https://sofastats.github.io/sofastats_lib/ and https://sofastats.github.io/sofastats_lib/data_prep/), and a design informed by UX research (see "How UX Can Improve Your Python Project" by Grant and Charlotte Paton-Simpson: https://www.youtube.com/watch?v=5DDZa46g3Yc).
+Python is the most popular language for data science and analytics.
+Python developers are well served with basic statistical tests and visualization options.
+But there is a gap for an integrated set of tools for charting, report tables, and inferential statistical tests.
+`sofastats_lib` aims to make such tools accessible to beginners as well as expert analysts through a standardized API (see https://sofastats.github.io/sofastats_lib/API), detailed documentation (https://sofastats.github.io/sofastats_lib/ and https://sofastats.github.io/sofastats_lib/data_prep/), and a design informed by UX research (see "How UX Can Improve Your Python Project" by Grant and Charlotte Paton-Simpson: https://www.youtube.com/watch?v=5DDZa46g3Yc).
 
 ## Features
 
@@ -73,6 +78,9 @@ The goal of interface design was to minimise boilerplate and standardise across 
 ### Chart
 
 ```python
+from sofastats.output.charts.box_plot import ClusteredBoxplotChartDesign
+...
+
 design = ClusteredBoxplotChartDesign(
     csv_file_path=csv_file_path,
     output_file_path=output_folder / 'demo_multi_series_box_plot_black_pastel.html',
@@ -89,7 +97,7 @@ design = ClusteredBoxplotChartDesign(
     show_n_records=True,
     x_axis_font_size=12,
     decimal_points=3,
-    )
+)
 design.make_output()
 ```
 
@@ -98,6 +106,8 @@ design.make_output()
 ### Report Table
 
 ```python
+from sofastats.output.tables.cross_tab import CrossTabDesign
+...
 
 row_variables_design_1 = Row(variable_name='Country', has_total=True, sort_order=SortOrder.CUSTOM,
     child=Row(variable_name='Home Location Type', has_total=True, sort_order=SortOrder.VALUE))
@@ -139,6 +149,9 @@ Note - it may not make sense to make massive tables but the point is that `sofas
 <img alt="Cross Tab Example" src="https://sofastats.github.io/sofastats_lib/images/cross_tab_red_spirals_style.png" width="700" />
 
 ```python
+from sofastats.output.stats.anova import AnovaDesign
+...
+
 design = AnovaDesign(
     csv_file_path=csv_file_path,
     output_file_path=output_folder / 'demo_anova_age_by_country_black_pastel_style.html',
