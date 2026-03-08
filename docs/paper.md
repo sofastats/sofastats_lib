@@ -20,7 +20,9 @@ Where it makes sense, there is also the option of worked example explanations of
 for example, of the Mann-Whitney U results.
 Output can be themed by pre-existing styles or by custom YAML-defined styles (https://sofastats.github.io/sofastats_lib/styles/).
 
-![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png){ width = 700px }
+![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png){ width=60% }
+
+![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png)
 
 # Statement of Need
 
