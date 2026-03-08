@@ -20,9 +20,7 @@ Where it makes sense, there is also the option of worked example explanations of
 for example, of the Mann-Whitney U results.
 Output can be themed by pre-existing styles or by custom YAML-defined styles (https://sofastats.github.io/sofastats_lib/styles/).
 
-![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png){ width=60% }
-
-![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png)
+![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png){ width=75% }
 
 # Statement of Need
 
@@ -108,7 +106,7 @@ design = ClusteredBoxplotChartDesign(
 design.make_output()
 ```
 
-<img alt="Clustered Box Plot Example" src="https://sofastats.github.io/sofastats_lib/images/clustered_box_plot_black_pastel_style.png" width="700" />
+![Clustered Box Plot Example](https://sofastats.github.io/sofastats_lib/images/clustered_box_plot_black_pastel_style.png){ width=75% }
 
 ## Report Table
 
@@ -147,13 +145,13 @@ design.make_output()
 
 ### Close-Up View
 
-<img alt="Cross Tab Example - Close-Up" src="https://sofastats.github.io/sofastats_lib/images/cross_tab_red_spirals_style_truncated.png" width="700" />
+![Cross Tab Example - Close-Up](https://sofastats.github.io/sofastats_lib/images/cross_tab_red_spirals_style_truncated.png){ width=75% }
 
 ### Complete View
 
 Note - it may not make sense to make massive tables but the point is that `sofastats_lib` can generate whatever is configured.
 
-<img alt="Cross Tab Example" src="https://sofastats.github.io/sofastats_lib/images/cross_tab_red_spirals_style.png" width="700" />
+![Cross Tab Example](https://sofastats.github.io/sofastats_lib/images/cross_tab_red_spirals_style.png) { width=75% }
 
 ```python
 from sofastats.output.stats.anova import AnovaDesign
@@ -174,4 +172,4 @@ design = AnovaDesign(
 design.make_output()
 ```
 
-<img alt="One-Way ANOVA Example" src="https://sofastats.github.io/sofastats_lib/images/anova_black_pastel_style_as_ordered.png" width="700" />
+![One-Way ANOVA Example](https://sofastats.github.io/sofastats_lib/images/anova_black_pastel_style_as_ordered.png) { width=75% }
