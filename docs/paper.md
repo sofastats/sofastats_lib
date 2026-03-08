@@ -151,7 +151,7 @@ design.make_output()
 
 Note - it may not make sense to make massive tables but the point is that `sofastats_lib` can generate whatever is configured.
 
-![Cross Tab Example](https://sofastats.github.io/sofastats_lib/images/cross_tab_red_spirals_style.png) { width=75% }
+![Cross Tab Example](https://sofastats.github.io/sofastats_lib/images/cross_tab_red_spirals_style.png){ width=75% }
 
 ```python
 from sofastats.output.stats.anova import AnovaDesign
@@ -172,4 +172,4 @@ design = AnovaDesign(
 design.make_output()
 ```
 
-![One-Way ANOVA Example](https://sofastats.github.io/sofastats_lib/images/anova_black_pastel_style_as_ordered.png) { width=75% }
+![One-Way ANOVA Example](https://sofastats.github.io/sofastats_lib/images/anova_black_pastel_style_as_ordered.png){ width=75% }
