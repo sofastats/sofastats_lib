@@ -1,10 +1,13 @@
-# The Journal of Open Source Software Paper
+title: 'sofastats_lib: A Python package for basic statistical tests, report tables, and charting'
+tags:
+  - Python
+  - statistics
+  - charts
+authors:
+    - name: Grant R. Paton-Simpson
+date: 8 March 2026
 
-sofastats_lib: A Python package for basic statistical tests, report tables, and charting
-
-Grant Paton-Simpson
-
-## Summary
+# Summary
 
 `sofastats_lib` is a Python library for statistical analysis and reporting
 based on the design of the SOFA Statistics desktop application which was launched in 2009.
@@ -17,18 +20,18 @@ Output can be themed by pre-existing styles or by custom YAML-defined styles (ht
 
 <img alt="Example outputs" src="https://sofastats.github.io/sofastats_lib/images/carousel.png" width="700" />
 
-## Statement of Need
+# Statement of Need
 
 Python is the most popular language for data science and analytics.
 Python developers are well served with basic statistical tests and visualization options.
 But there is a gap for an integrated set of tools for charting, report tables, and inferential statistical tests.
 `sofastats_lib` aims to make such tools accessible to beginners as well as expert analysts through a standardized API (see https://sofastats.github.io/sofastats_lib/API), detailed documentation (https://sofastats.github.io/sofastats_lib/ and https://sofastats.github.io/sofastats_lib/data_prep/), and a design informed by UX research (see "How UX Can Improve Your Python Project" by Grant and Charlotte Paton-Simpson: https://www.youtube.com/watch?v=5DDZa46g3Yc).
 
-## Features
+# Features
 
 https://sofastats.github.io/sofastats_lib/output_gallery.html
 
-### Charts
+## Charts
 
 * Area Charts
 * Multiple-Chart Area Charts
@@ -49,12 +52,12 @@ https://sofastats.github.io/sofastats_lib/output_gallery.html
 * By Series Scatter Plots
 * Multiple-Chart By Series Scatter Plots
 
-### Report Tables
+## Report Tables
 
 * Frequency Tables
 * Cross Tabs
 
-### Inferential Statistical Tests
+## Inferential Statistical Tests
 
 * ANOVA (One Way)
 * Chi Square (including table of expected and observed values)
@@ -67,7 +70,7 @@ https://sofastats.github.io/sofastats_lib/output_gallery.html
 * Spearman's R Correlation
 * Wilcoxon Signed Ranks Test
 
-## Examples
+# Examples
 
 Full examples, including all required imports and data sources,
 can be found at: https://github.com/sofastats/sofastats_lib/tree/main/src/sofastats_examples/scripts
@@ -75,7 +78,7 @@ can be found at: https://github.com/sofastats/sofastats_lib/tree/main/src/sofast
 Below are examples of the actual configuration required to make output.
 The goal of interface design was to minimise boilerplate and standardise across charting, report tables, and statistical tests.
 
-### Chart
+## Chart
 
 ```python
 from sofastats.output.charts.box_plot import ClusteredBoxplotChartDesign
@@ -103,7 +106,7 @@ design.make_output()
 
 <img alt="Clustered Box Plot Example" src="https://sofastats.github.io/sofastats_lib/images/clustered_box_plot_black_pastel_style.png" width="700" />
 
-### Report Table
+## Report Table
 
 ```python
 from sofastats.output.tables.cross_tab import CrossTabDesign
@@ -136,13 +139,13 @@ design = CrossTabDesign(
 design.make_output()
 ```
 
-### Statistical Test
+## Statistical Test
 
-#### Close-Up View
+### Close-Up View
 
 <img alt="Cross Tab Example - Close-Up" src="https://sofastats.github.io/sofastats_lib/images/cross_tab_red_spirals_style_truncated.png" width="700" />
 
-#### Complete View
+### Complete View
 
 Note - it may not make sense to make massive tables but the point is that `sofastats_lib` can generate whatever is configured.
 
