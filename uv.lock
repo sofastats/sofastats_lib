@@ -561,6 +561,12 @@ wheels = [
 ]
 
 [[package]]
+name = "jsmin"
+version = "3.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/5e/73/e01e4c5e11ad0494f4407a3f623ad4d87714909f50b17a06ed121034ff6e/jsmin-3.0.1.tar.gz", hash = "sha256:c0959a121ef94542e807a674142606f7e90214a2b3d1eb17300244bbb5cc2bfc", size = 13925, upload-time = "2022-01-16T20:35:59.13Z" }
+
+[[package]]
 name = "kiwisolver"
 version = "1.4.9"
 source = { registry = "https://pypi.org/simple" }
@@ -1641,6 +1647,7 @@ dev = [
     { name = "deptry" },
     { name = "faker" },
     { name = "import-linter" },
+    { name = "jsmin" },
     { name = "mkdocs" },
     { name = "mkdocs-include-markdown-plugin" },
     { name = "mkdocs-material" },
@@ -1673,6 +1680,7 @@ dev = [
     { name = "deptry", specifier = ">=0.23.0" },
     { name = "faker", specifier = ">=37.5.3" },
     { name = "import-linter", specifier = ">=2.3" },
+    { name = "jsmin", specifier = ">=3.0.1" },
     { name = "mkdocs", specifier = ">=1.5.2" },
     { name = "mkdocs-include-markdown-plugin", specifier = ">=7.2.1" },
     { name = "mkdocs-material", specifier = ">=9.2.4" },

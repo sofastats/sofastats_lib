@@ -1,5 +1,5 @@
 """
-cd /home/g/projects && uv run --with jsmin "/home/g/projects/sofastats_lib/utils/minify_sofastats_dojo.py"
+cd /home/g/projects && uv run "/home/g/projects/sofastats_lib/utils/minify_sofastats_dojo.py"
 """
 
 import jsmin
