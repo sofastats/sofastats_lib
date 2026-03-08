@@ -1,11 +1,13 @@
+---
 title: 'sofastats_lib: A Python package for basic statistical tests, report tables, and charting'
 tags:
   - Python
   - statistics
   - charts
 authors:
-    - name: Grant R. Paton-Simpson
+  - name: Grant R. Paton-Simpson
 date: 8 March 2026
+---
 
 # Summary
 
