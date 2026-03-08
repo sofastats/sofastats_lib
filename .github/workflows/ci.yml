@@ -43,6 +43,11 @@ jobs:
           CI_UV_UPGRADE_ARG: ${{ matrix.dependencies == 'max' && '--upgrade' || '' }}
           UV_RESOLUTION: ${{ matrix.dependencies == 'min' && 'lowest-direct' || 'highest' }}
 
+      - name: Run deptry
+        run: |
+          uv run deptry --github-output . --ignore DEP004
+          uv run deptry --github-output . --exclude ".venv|utils|store|tests"
+
       - name: Run pytest
         uses: pavelzw/pytest-action@510c5e90c360a185039bea56ce8b3e7e51a16507 # v2.2.0
         with:

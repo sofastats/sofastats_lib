@@ -84,3 +84,11 @@ filterwarnings = ["error"]
 xfail_strict = true
 log_cli_level = "INFO"
 minversion = "7"
+
+[tool.deptry]
+exclude = [".venv"]
+known_first_party = ["sofastats", "sofastats_examples","process_designs"]
+
+[tool.deptry.per_rule_ignores]
+# pyparsing is unused, but is an explicitly listed dependency to constrain its version for Python 3.11 support.
+DEP002 = ["pyparsing"]
