@@ -20,7 +20,7 @@ Where it makes sense, there is also the option of worked example explanations of
 for example, of the Mann-Whitney U results.
 Output can be themed by pre-existing styles or by custom YAML-defined styles (https://sofastats.github.io/sofastats_lib/styles/).
 
-<img alt="Example outputs" src="https://sofastats.github.io/sofastats_lib/images/carousel.png" width="700" />
+![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png){ width = 700px }
 
 # Statement of Need
 
@@ -31,7 +31,7 @@ But there is a gap for an integrated set of tools for charting, report tables, a
 
 # Features
 
-https://sofastats.github.io/sofastats_lib/output_gallery.html
+https://sofastats.github.io/sofastats_lib/output_gallery.html)
 
 ## Charts
 
