@@ -123,26 +123,32 @@ from sofastats.output.tables.cross_tab import CrossTabDesign
 row_variables_design_1 = (
     Row(variable_name='Country', has_total=True, sort_order=SortOrder.CUSTOM,
         child=Row(
-            variable_name='Home Location Type', has_total=True, sort_order=SortOrder.VALUE))
+            variable_name='Home Location Type',
+            has_total=True, sort_order=SortOrder.VALUE))
 row_variables_design_2 = (
-    Row(variable_name='Home Location Type', has_total=True, sort_order=SortOrder.CUSTOM))
+    Row(variable_name='Home Location Type',
+        has_total=True, sort_order=SortOrder.CUSTOM))
 row_variables_design_3 = Row(variable_name='Car')
 
 col_variables_design_1 = (
-    Column(variable_name='Sleep Group', has_total=True, sort_order=SortOrder.CUSTOM))
+    Column(variable_name='Sleep Group',
+        has_total=True, sort_order=SortOrder.CUSTOM))
 col_variables_design_2 = (
-    Column(variable_name='Age Group', has_total=True, sort_order=SortOrder.CUSTOM,
+    Column(variable_name='Age Group',
+        has_total=True, sort_order=SortOrder.CUSTOM,
         child=Column(
-            variable_name='Handedness', has_total=True, sort_order=SortOrder.CUSTOM,
+            variable_name='Handedness',
+            has_total=True, sort_order=SortOrder.CUSTOM,
             pct_metrics=[Metric.ROW_PCT, Metric.COL_PCT]))
 col_variables_design_3 = (
-    Column(variable_name='Tertiary Qualifications', has_total=True, sort_order=SortOrder.CUSTOM))
+    Column(variable_name='Tertiary Qualifications',
+        has_total=True, sort_order=SortOrder.CUSTOM))
 
 design = CrossTabDesign(
     cur=sqlite_cur,
     database_engine_name=DbeName.SQLITE,  ## or just the string 'sqlite'
     source_table_name='people',
-    table_filter_sql="WHERE Car IN ('Porsche', 'Audi', 'Toyota', 'Aston Martin')",
+    table_filter_sql="WHERE Car IN ('Porsche', 'Toyota', 'Aston Martin')",
     output_file_path=output_folder / 'demo_main_cross_tab.html',
     output_title='Cross Tab from SQLite (Filtered by Car)',
     show_in_web_browser=True,
@@ -175,7 +181,7 @@ from sofastats.output.stats.anova import AnovaDesign
 
 design = AnovaDesign(
     csv_file_path=csv_file_path,
-    output_file_path=output_folder / 'demo_anova_age_by_country_black_pastel_style.html',
+    output_file_path=output_folder / 'demo_anova_age_by_country.html',
     output_title='ANOVA - Black Pastel Style',
     show_in_web_browser=True,
     style_name='black_pastel',
