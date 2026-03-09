@@ -21,7 +21,7 @@ for example, of the Mann-Whitney U results.
 Output can be themed by pre-existing styles
 or by custom YAML-defined styles ([Making Custom Styles](https://sofastats.github.io/sofastats_lib/styles/)).
 
-![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png){ width=75% }
+![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png){ width=95% }
 
 # Statement of Need
 
