@@ -18,7 +18,8 @@ based on the design of the SOFA Statistics desktop application which was launche
 In the case of statistical tests, result are also generated in an object (data class) readily consumed by Python programs.
 Where it makes sense, there is also the option of worked example explanations of the results using the actual data used -
 for example, of the Mann-Whitney U results.
-Output can be themed by pre-existing styles or by custom YAML-defined styles (https://sofastats.github.io/sofastats_lib/styles/).
+Output can be themed by pre-existing styles
+or by custom YAML-defined styles ([Making Custom Styles](https://sofastats.github.io/sofastats_lib/styles/)).
 
 ![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png){ width=75% }
 
@@ -27,11 +28,16 @@ Output can be themed by pre-existing styles or by custom YAML-defined styles (ht
 Python is the most popular language for data science and analytics.
 Python developers are well served with basic statistical tests and visualization options.
 But there is a gap for an integrated set of tools for charting, report tables, and inferential statistical tests.
-`sofastats_lib` aims to make such tools accessible to beginners as well as expert analysts through a standardized API (see https://sofastats.github.io/sofastats_lib/API), detailed documentation (https://sofastats.github.io/sofastats_lib/ and https://sofastats.github.io/sofastats_lib/data_prep/), and a design informed by UX research (see "How UX Can Improve Your Python Project" by Grant and Charlotte Paton-Simpson: https://www.youtube.com/watch?v=5DDZa46g3Yc).
+`sofastats_lib` aims to make such tools accessible to beginners
+as well as expert analysts through a standardized API (see [API Documentation](https://sofastats.github.io/sofastats_lib/API)),
+detailed documentation ([README](https://sofastats.github.io/sofastats_lib/)
+and [Data Preparation](https://sofastats.github.io/sofastats_lib/data_prep/)),
+and a design informed by UX research
+(see ["How UX Can Improve Your Python Project" by Grant and Charlotte Paton-Simpson](https://www.youtube.com/watch?v=5DDZa46g3Yc)).
 
 # Features
 
-https://sofastats.github.io/sofastats_lib/output_gallery.html)
+[Output Gallery](https://sofastats.github.io/sofastats_lib/output_gallery.html)
 
 ## Charts
 
@@ -75,7 +81,7 @@ https://sofastats.github.io/sofastats_lib/output_gallery.html)
 # Examples
 
 Full examples, including all required imports and data sources,
-can be found at: https://github.com/sofastats/sofastats_lib/tree/main/src/sofastats_examples/scripts
+can be found at [sofastats_examples/scripts](https://github.com/sofastats/sofastats_lib/tree/main/src/sofastats_examples/scripts)
 
 Below are examples of the actual configuration required to make output.
 The goal of interface design was to minimise boilerplate and standardise across charting, report tables, and statistical tests.
