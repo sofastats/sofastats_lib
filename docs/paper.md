@@ -29,10 +29,12 @@ Python is the most popular language for data science and analytics.
 Python developers are well served with basic statistical tests and visualization options.
 But there is a gap for an integrated set of tools for charting, report tables, and inferential statistical tests.
 `sofastats_lib` aims to make such tools accessible to beginners
-as well as expert analysts through a standardized API (see [API Documentation](https://sofastats.github.io/sofastats_lib/API)),
-detailed documentation ([README](https://sofastats.github.io/sofastats_lib/)
+as well as expert analysts through:
+
+1) a standardized API (see [API Documentation](https://sofastats.github.io/sofastats_lib/API))
+2) detailed documentation ([README](https://sofastats.github.io/sofastats_lib/)
 and [Data Preparation](https://sofastats.github.io/sofastats_lib/data_prep/)),
-and a design informed by UX research
+3) and a design informed by UX research
 (see ["How UX Can Improve Your Python Project" by Grant and Charlotte Paton-Simpson](https://www.youtube.com/watch?v=5DDZa46g3Yc)).
 
 [^1]: SOFA Statistics won the 2012 People's Choice Award in the New Zealand Open Source Awards
