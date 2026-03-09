@@ -11,8 +11,8 @@ date: 8 March 2026
 
 # Summary
 
-`sofastats_lib` is a Python library for statistical analysis and reporting
-based on the design of the SOFA Statistics desktop application which was launched in 2009.
+`sofastats_lib` is a Python library for charting, report tables, and inferential statistical tests.
+It is based on the design of the SOFA Statistics desktop application launched in 2009[^1].
 
 `sofatstats_lib` provides a standard interface for connecting to CSV files and databases and generating report-ready self-contained HTML output.
 In the case of statistical tests, result are also generated in an object (data class) readily consumed by Python programs.
@@ -34,6 +34,9 @@ detailed documentation ([README](https://sofastats.github.io/sofastats_lib/)
 and [Data Preparation](https://sofastats.github.io/sofastats_lib/data_prep/)),
 and a design informed by UX research
 (see ["How UX Can Improve Your Python Project" by Grant and Charlotte Paton-Simpson](https://www.youtube.com/watch?v=5DDZa46g3Yc)).
+
+[^1]: SOFA Statistics won the 2012 People's Choice Award in the New Zealand Open Source Awards
+and was a finalist for the Best Open Source Project Award.
 
 # Features
 
@@ -121,7 +124,8 @@ from sofastats.output.tables.cross_tab import CrossTabDesign
 ...
 
 row_variables_design_1 = (
-    Row(variable_name='Country', has_total=True, sort_order=SortOrder.CUSTOM,
+    Row(variable_name='Country',
+        has_total=True, sort_order=SortOrder.CUSTOM,
         child=Row(
             variable_name='Home Location Type',
             has_total=True, sort_order=SortOrder.VALUE))
