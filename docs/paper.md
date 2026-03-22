@@ -6,7 +6,7 @@ tags:
   - charts
 authors:
   - name: Grant R. Paton-Simpson
-date: 8 March 2026
+date: 22 March 2026
 ---
 
 # Summary
@@ -22,6 +22,7 @@ Output can be themed by pre-existing styles
 or by custom YAML-defined styles ([Making Custom Styles](https://sofastats.github.io/sofastats_lib/styles/)).
 
 ![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png){ width=95% }
+
 
 # Statement of Need
 
@@ -39,6 +40,113 @@ and [Data Preparation](https://sofastats.github.io/sofastats_lib/data_prep/)),
 
 [^1]: SOFA Statistics won the 2012 People's Choice Award in the New Zealand Open Source Awards
 and was a finalist for the Best Open Source Project Award.
+
+
+# State of the Field
+
+Python is well-served with a very wide range of statistical functions
+ranging from the very basic functions provided by the built-in [statistics](https://docs.python.org/3/library/statistics.html) library,
+which supplies low-level functions like `mean`, `median`, `stdev`, and `linear_regression`,
+through to the extensive and often advanced offerings of
+`scipy.stats` ([Statistical functions (scipy.stats)](https://docs.scipy.org/doc/scipy/reference/stats.html))
+and `statsmodels` ([statsmodels User Guide](https://www.statsmodels.org/stable/user-guide.html)).
+Rounding out the options are PyMC which is for Bayesian statistics (not currently available in `sofastats_lib`)
+and `pingouin` ([JOSS Paper](https://joss.theoj.org/papers/10.21105/joss.01026);
+[Pingouin Documentation](https://pingouin-stats.org/index.html)) which is most similar in purpose to `sofastats_lib`.
+
+The rationale for `sofastats_lib` is to provide a unified experience when creating charts, report tables, and
+inferential statistical test output. See the Examples section below.
+As with `pingouin` raw statistical output is in the form of dataclasses
+but `sofastats_lib` includes integrated charts, tables, and, where possible, workings as part of test output.
+All output is available as standalone HTML which has advantages for more interactive charts
+and for distribution of high-quality output. A final reason for making `sofastats_lib`
+is to provide the underpinnings of a web GUI desktop application to replace SOFA Statistics.
+Although `pingouin` is too different from the vision of `sofastats_lib`
+to justify a "contribute" strategy instead of a "build" strategy there may be cross-pollination in the future.
+
+
+# Software Design
+
+## Python Library
+
+The main design decision was to supply the code as a Python library defined by a pyproject.toml file
+as is current best practice.
+UV was used for dependency management and the CI process includes checks that the dependencies
+can all be reconciled successfully on all versions of Python explicitly supported.
+The goal is for people to be able to integrate `sofastats_lib` into existing Python projects,
+Python being the main language used by Data Scientists and analysts generally. 
+
+## Standardisation
+
+To make `sofastats_lib` easier to consume and document,
+it was decided to standardise the interface across charting, report tables, and statistical tests.
+The CommonDesign dataclass was used as the base for all output design dataclasses
+with the contract that they would all implement the `to_html_design()` method
+which returns an `HTMLItemSpec` dataclass which in turn has `to_standalone_html()` and `to_result()` methods.
+Having a common approach makes it easier to implement new charts, report tables, or statistical tests in the future.
+
+## Clear Naming
+
+Although contractions and abbreviations have been used in variable names
+throughout the `sofastats_lib` codebase for brevity,
+an effort was made to use the clearest possible names for variables and attributes in the surface API,
+even if that lengthens names.
+
+Examples:
+
+* naming a parameter for filtering underlying source data "table_filter_sql" instead of "filt_str"
+to make it more obvious that an appropriate SQL syntax must be followed
+* using "database_engine_name" instead of "dbe_name"
+* calling the dataclasses used for defining output "designs" and supplying all-in-one methods like "make_output".
+
+## Parameter Grouping
+
+When it came to parameter order there was a decision to make -
+should parameters be ordered so those with default values came last, which would be the easiest approach to implement?
+Or should parameters be ordered into logical groupings - for example, putting all data-related configuration together,
+which would require a different approach to default values?
+The latter was chosen to improve the user experience
+and additional logic was added to enforce the supply of values lacking sensible defaults.
+
+## Dataclass Interfaces
+
+Dataclasses have been used throughout `sofastats_lib` as the main configuration inputs and returned values.
+This approach provides clear interfaces and makes type hinting more informative.
+It is also possible to add validation to inputs and to make the code more self-documenting than when,
+for example, dictionaries are used.
+
+## Organising Into Folders
+
+Code has been organised into folders and subfolders as needed but there was an attempt to avoid excessive nesting.
+For example, the output code for making bar charts is found in `sofastats_lib/output/charts/bar.py`.
+The code for running a Mann-Whitney U test is in `sofastats_lib/output/stats/mann_whitney_u.py`.
+
+## Making Custom Styles Easy to Configure
+
+The styling system for `sofastats_lib` was designed so no Python was required, only YAML configuration.
+The standard, built-in styles provide a model for how to make custom styles, and include the use of named items for colors.
+
+
+# Research Impact Statement
+
+`sofastats_lib` is based on the established SOFA Statistics desktop application
+so although the library is too new to have an established record, the application it was based on
+has been in use since 2009. SOFA Statistics has been downloaded over 350,000 times from SourceForge.
+Additionally, it has been cited by hundreds[^1] of articles according to Google Scholar, including articles on
+everything from bat virus phosphoproteins to concentrations of artificial sweeteners in wastewater.
+SOFA Statistics has been widely used for teaching applied statistics to students
+and video and text documentation has been produced to assist student labs - for example, a 135 page manual
+[LAB MANUAL SOFA: Statistics Open For All - June 2017 – Edition 2.0 135 pages; George Self](https://ssric.calstate.edu/sites/default/files/2019-10/G_SELF_LabManual.pdf))
+
+[^1]: In addition to the 88 articles which displayed the recommended standard citation
+there were numerous examples that did not.
+The exact number is difficult to extract because of the presence of an unrelated metric called SOFA,
+but it is less than 480.
+
+# AI Usage Disclosure
+
+No AI tools were used.
+
 
 # Features
 

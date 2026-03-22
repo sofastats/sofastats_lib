@@ -25,7 +25,7 @@ from sofastats.utils.misc import get_safer_name
 
 from ruamel.yaml import YAML
 
-DEFAULT_SUPPLIED_BUT_MANDATORY_ANYWAY = '__default_supplied_but_mandatory_anyway__'  ## enforced through add_post_init_with_mandatory_cols decorator (curried with mandatory col names)
+DEFAULT_SUPPLIED_BUT_MANDATORY_ANYWAY = '__default_supplied_but_mandatory_anyway__'  ## enforced through ...
 
 TUNDRA_CSS = (Path(styles.__file__).parent.parent / 'css' / 'tundra.css').read_text()
 DOJO_XD_JS = (Path(styles.__file__).parent.parent / 'js' / 'dojo.xd.js').read_text()
@@ -102,10 +102,8 @@ class CommonDesign(ABC):
     Can't have defaults in CommonDesign attributes (which go first) and then missing defaults for the output dataclasses.
     Therefore, we are required to supply defaults for everything in the output dataclasses.
     That includes mandatory fields.
-    So how do we ensure those mandatory field arguments are supplied.
-    We use a decorator (add_post_init_enforcing_mandatory_cols) to add a __post_init__ handler
-    which runs CommonDesign.__post_init__ and then enforces the supply of values for every attribute
-    which has DEFAULT_SUPPLIED_BUT_MANDATORY_ANYWAY.
+    So how do we ensure those mandatory field arguments are supplied?
+    We check in __post_init__ that the special value DEFAULT_SUPPLIED_BUT_MANDATORY_ANYWAY is not supplied.
 
     Args:
         csv_file_path: full file path to CSV file (if using CSV as source)
