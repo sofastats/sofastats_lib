@@ -157,34 +157,15 @@ No AI tools were used.
 
 [Output Gallery](https://sofastats.github.io/sofastats_lib/output_gallery.html)
 
-+-------------+----------------------------+-----------------------------------+--------------------------------------+
-| Charts                                                                                                              |
-+:===========:+:==========================:+:=================================:+:====================================:+
-| Area Charts | Multiple-Chart Area Charts                                                                            |
-+-------------+----------------------------+-----------------------------------+--------------------------------------+
-| Bar Charts  | Multiple-Chart Bar Charts  | Clustered Bar Charts              | Multiple-Chart Clustered Bar Charts  |
-+-------------+----------------------------+-----------------------------------+--------------------------------------+
-
 ## Charts
 
-* Area Charts
-* Multiple-Chart Area Charts
-* Bar Charts
-* Multiple-Chart Bar Charts
-* Clustered Bar Charts
-* Multiple-Chart Clustered Bar Charts
-* Box Plots
-* Clustered Box Plots
-* Histograms
-* Multiple-Chart Histograms
-* Line Charts
-* Multiple-Chart Line Charts
-* Pie Charts
-* Multiple-Chart Pie Charts
-* Scatter Plots
-* Multiple-Chart Scatter Plots
-* By Series Scatter Plots
-* Multiple-Chart By Series Scatter Plots
+* Area Charts; Multiple-Chart Area Charts
+* Bar Charts; Multiple-Chart Bar Charts; Clustered Bar Charts; Multiple-Chart Clustered Bar Charts
+* Box Plots; Clustered Box Plots
+* Histograms; Multiple-Chart Histograms
+* Line Charts; Multiple-Chart Line Charts
+* Pie Charts; Multiple-Chart Pie Charts
+* Scatter Plots; Multiple-Chart Scatter Plots; By Series Scatter Plots; Multiple-Chart By Series Scatter Plots
 
 ## Report Tables
 
