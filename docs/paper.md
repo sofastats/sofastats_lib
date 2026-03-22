@@ -157,14 +157,11 @@ No AI tools were used.
 
 [Output Gallery](https://sofastats.github.io/sofastats_lib/output_gallery.html)
 
-<table>
-<tbody>
-<tr><td>Charts</td></tr>
-<tr><td>Area Charts</td><td>Multiple-Chart Area Charts</td></tr>
-</tbody>
-</table>
-
-
++-------------+----------------------------+
+| Charts                                   |
++-------------+----------------------------+
+| Area Charts | Multiple-Chart Area Charts |
++-------------+----------------------------+
 
 ## Charts
 
