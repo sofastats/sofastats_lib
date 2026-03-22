@@ -44,18 +44,18 @@ and was a finalist for the Best Open Source Project Award.
 
 # State of the Field
 
-Python is well-served with a very wide range of statistical functions
-ranging from the very basic functions provided by the built-in [statistics](https://docs.python.org/3/library/statistics.html) library,
-which supplies low-level functions like `mean`, `median`, `stdev`, and `linear_regression`,
-through to the extensive and often advanced offerings of
-`scipy.stats` ([Statistical functions (scipy.stats)](https://docs.scipy.org/doc/scipy/reference/stats.html))
-and `statsmodels` ([statsmodels User Guide](https://www.statsmodels.org/stable/user-guide.html)).
+Python is well-served with a very wide range of statistical functions.
+Beyond the very basic functions such as `mean`, `median`, and `stdev` provided by the built-in [statistics](https://docs.python.org/3/library/statistics.html) library,
+there are packages such as [stat-analysis](https://pypi.org/project/stat-analysis/),
+[statista](https://pypi.org/project/statista/), and
+[python-stats](https://pypi.org/project/python-stats/), the latter describing itself as
+providing statistics functions similar to those found on scientific calculators.
+Then there are the very popular libraries `scipy.stats` ([Statistical functions (scipy.stats)](https://docs.scipy.org/doc/scipy/reference/stats.html))
+and `statsmodels` ([statsmodels User Guide](https://www.statsmodels.org/stable/user-guide.html)) which have an extensive range of often advanced capabilities.
 Rounding out the options are PyMC which is for Bayesian statistics (not currently available in `sofastats_lib`)
 and `pingouin` ([JOSS Paper](https://joss.theoj.org/papers/10.21105/joss.01026);
 [Pingouin Documentation](https://pingouin-stats.org/index.html)) which is most similar in purpose to `sofastats_lib`.
 
-The rationale for `sofastats_lib` is to provide a unified experience when creating charts, report tables, and
-inferential statistical test output. See the Examples section below.
 As with `pingouin` raw statistical output is in the form of dataclasses
 but `sofastats_lib` includes integrated charts, tables, and, where possible, workings as part of test output.
 All output is available as standalone HTML which has advantages for more interactive charts
@@ -63,6 +63,11 @@ and for distribution of high-quality output. A final reason for making `sofastat
 is to provide the underpinnings of a web GUI desktop application to replace SOFA Statistics.
 Although `pingouin` is too different from the vision of `sofastats_lib`
 to justify a "contribute" strategy instead of a "build" strategy there may be cross-pollination in the future.
+
+The rationale for `sofastats_lib` is to provide a unified experience when creating charts, report tables, and
+inferential statistical test output. `sofastats_lib` currently provides the same output options
+as the original SOFA Statistics desktop application (see the Examples section below),
+but the completely fresh design of the underlying code makes it much easier to add new output options in the future.
 
 
 # Software Design
@@ -151,6 +156,15 @@ No AI tools were used.
 # Features
 
 [Output Gallery](https://sofastats.github.io/sofastats_lib/output_gallery.html)
+
+<table>
+<tbody>
+<tr><td>Charts</td></tr>
+<tr><td>Area Charts</td><td>Multiple-Chart Area Charts</td></tr>
+</tbody>
+</table>
+
+
 
 ## Charts
 
