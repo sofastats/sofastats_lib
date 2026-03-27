@@ -1,17 +1,17 @@
 ---
-title: 'sofastats_lib: A Python package for basic statistical tests, report tables, and charting'
+title: 'sofastats_lib: an integrated Python library for charting, report tables, and basic statistical tests'
 tags:
   - Python
   - statistics
   - charts
 authors:
   - name: Grant R. Paton-Simpson
-date: 22 March 2026
+date: 28 March 2026
 ---
 
 # Summary
 
-`sofastats_lib` is a Python library for charting, report tables, and inferential statistical tests.
+`sofastats_lib` is an integrated Python library for charting, report tables, and basic statistical tests.
 It is based on the design of the SOFA Statistics desktop application launched in 2009[^1].
 
 `sofatstats_lib` provides a standard interface for connecting to CSV files and databases and generating report-ready self-contained HTML output.
@@ -21,14 +21,19 @@ for example, of the Mann-Whitney U results.
 Output can be themed by pre-existing styles
 or by custom YAML-defined styles ([Making Custom Styles](https://sofastats.github.io/sofastats_lib/styles/)).
 
+The rationale for `sofastats_lib` is to provide a unified experience when creating charts, report tables, and basic
+statistical test output. `sofastats_lib` currently provides the same output options
+as the original SOFA Statistics desktop application (see the Examples section below),
+but the completely fresh design of the underlying code makes it much easier to add new output options in the future.
+
 ![Output Examples](https://sofastats.github.io/sofastats_lib/images/carousel.png){ width=95% }
 
 
 # Statement of Need
 
 Python is the most popular language for data science and analytics.
-Python developers are well served with basic statistical tests and visualization options.
-But there is a gap for an integrated set of tools for charting, report tables, and inferential statistical tests.
+Python coders are well served with basic statistical tests and visualization options.
+But there is a gap for an integrated set of tools for charting, report tables, and basic statistical tests.
 `sofastats_lib` aims to make such tools accessible to beginners
 as well as expert analysts through:
 
@@ -52,22 +57,17 @@ there are packages such as [stat-analysis](https://pypi.org/project/stat-analysi
 providing statistics functions similar to those found on scientific calculators.
 Then there are the very popular libraries `scipy.stats` ([Statistical functions (scipy.stats)](https://docs.scipy.org/doc/scipy/reference/stats.html))
 and `statsmodels` ([statsmodels User Guide](https://www.statsmodels.org/stable/user-guide.html)) which have an extensive range of often advanced capabilities.
-Rounding out the options are PyMC which is for Bayesian statistics (not currently available in `sofastats_lib`)
+Rounding out the main options are PyMC which is for Bayesian statistics (not currently available in `sofastats_lib`)
 and `pingouin` ([JOSS Paper](https://joss.theoj.org/papers/10.21105/joss.01026);
 [Pingouin Documentation](https://pingouin-stats.org/index.html)) which is most similar in purpose to `sofastats_lib`.
 
-As with `pingouin` raw statistical output is in the form of dataclasses
+As with `pingouin` raw statistical output from `sofastats_lib` is in the form of dataclasses
 but `sofastats_lib` includes integrated charts, tables, and, where possible, workings as part of test output.
 All output is available as standalone HTML which has advantages for more interactive charts
 and for distribution of high-quality output. A final reason for making `sofastats_lib`
 is to provide the underpinnings of a web GUI desktop application to replace SOFA Statistics.
 Although `pingouin` is too different from the vision of `sofastats_lib`
 to justify a "contribute" strategy instead of a "build" strategy there may be cross-pollination in the future.
-
-The rationale for `sofastats_lib` is to provide a unified experience when creating charts, report tables, and
-inferential statistical test output. `sofastats_lib` currently provides the same output options
-as the original SOFA Statistics desktop application (see the Examples section below),
-but the completely fresh design of the underlying code makes it much easier to add new output options in the future.
 
 
 # Software Design
@@ -136,14 +136,14 @@ The standard, built-in styles provide a model for how to make custom styles, and
 
 `sofastats_lib` is based on the established SOFA Statistics desktop application
 so although the library is too new to have an established record, the application it was based on
-has been in use since 2009. SOFA Statistics has been downloaded over 350,000 times from SourceForge.
-Additionally, it has been cited by hundreds[^1] of articles according to Google Scholar, including articles on
+has been in use since 2009. SOFA Statistics has been downloaded over 370,000 times from SourceForge.
+Additionally, it has been cited by hundreds[^2] of articles according to Google Scholar, including articles on
 everything from bat virus phosphoproteins to concentrations of artificial sweeteners in wastewater.
 SOFA Statistics has been widely used for teaching applied statistics to students
 and video and text documentation has been produced to assist student labs - for example, a 135 page manual
 [LAB MANUAL SOFA: Statistics Open For All - June 2017 – Edition 2.0 135 pages; George Self](https://ssric.calstate.edu/sites/default/files/2019-10/G_SELF_LabManual.pdf))
 
-[^1]: In addition to the 88 articles which displayed the recommended standard citation
+[^2]: In addition to the 88 articles which displayed the recommended standard citation
 there were numerous examples that did not.
 The exact number is difficult to extract because of the presence of an unrelated metric called SOFA,
 but it is less than 480.
@@ -172,7 +172,7 @@ No AI tools were used.
 * Frequency Tables
 * Cross Tabs
 
-## Inferential Statistical Tests
+## Statistical Tests
 
 * ANOVA (One Way)
 * Chi Square (including table of expected and observed values)
